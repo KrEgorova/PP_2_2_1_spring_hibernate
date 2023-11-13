@@ -31,14 +31,17 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User getUserById(String model, int series) {
-        User user;
+    public User getUserByCar(String model, int series) {
+        User user = null;
         try (Session session = sessionFactory.openSession()) {
             Query query = session.createQuery(
-                    "FROM User WHERE car.model = :model and car.series = :series");
+                    "FROM User WHERE car.model = :model and car.series = :series", User.class);
             query.setParameter("model", model);
             query.setParameter("series", series);
             user = (User) query.getSingleResult();
+        } catch (Exception e) {
+            System.out.println("Произошла ошибка!!!!!");
+            ;
         }
         return user;
     }

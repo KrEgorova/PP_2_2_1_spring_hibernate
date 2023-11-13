@@ -18,7 +18,10 @@ public class User {
 
     @Column(name = "email")
     private String email;
-    @OneToOne
+
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
     private Car car;
 
     public User() {
@@ -78,7 +81,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", car=" + car +
                 '}';
     }
 }

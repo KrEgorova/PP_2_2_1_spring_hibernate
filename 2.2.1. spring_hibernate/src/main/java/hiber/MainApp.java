@@ -30,7 +30,7 @@ public class MainApp {
             System.out.println();
         }
 
-        System.out.println(userService.getUserById("model1", 1));
+        System.out.println(userService.getUserByCar("model1", 1));
 
         context.close();
     }
