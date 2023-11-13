@@ -41,7 +41,6 @@ public class UserDaoImp implements UserDao {
             user = (User) query.getSingleResult();
         } catch (Exception e) {
             System.out.println("Произошла ошибка!!!!!");
-            ;
         }
         return user;
     }
